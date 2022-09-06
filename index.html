@@ -2,15 +2,13 @@
 <html lang="en-US">
 <head>
   <title>My Portfolio</title>
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/scripts.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>My Pizza Parlor</h1>
-    </div>
-      <h2>Choose a size</h2>
+  <h1>My Pizza Parlor</h1>
+    <h2>Choose a size</h2>
+      <p>Your Pizza's base price is $10.00, each additional topping costs $2.00</p>
       <form id="pizza-options">
         <select id="size">
           <option id="small">Small</option>
@@ -32,5 +30,8 @@
         </div>
         <button type="submit" id="options-button">Submit!</button>
       </form>
+      <div id="pizza-results">
+        <h2 id="results">Results: </h2>
+      </div>
 </body>
 </html>

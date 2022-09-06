@@ -1,20 +1,31 @@
+//Business Logic
+
 function Pizza(toppings = [], size) {
-  this.toppings = toppings
-  this.size = size
-}
+  this.toppings = toppings;
+  this.size = size;
+  this.price = 10;
+};
 
-function pizzaForm(){
-  let topping1 = document.getElementById("ham").value;
-  let topping2 = document.getElementById("spam").value;
-  let topping3 = document.getElementById("yam").value;
-  let size = document.getElementById("size").value
-  let newPizza = new Pizza([topping1, topping2, topping3], size)
 
-    if (topping1)
+Pizza.prototype.priceChecker = function() {
+  toppingsPrice = this.toppings.length * 2
+  this.price = toppingsPrice + 10;
+  return "Your Pizza Costs: $" + this.price;
+};
+
+//User Logic
+
+let pizzaForm = function(event) {
+  event.preventDefault();
+  let toppings = document.querySelectorAll('input[type="checkbox"]:checked');
+  let size = document.getElementById("size").value;
+  let newPizza = new Pizza(toppings, size);
+  console.log(newPizza)
+  document.getElementById("results").innerText = newPizza.priceChecker();
 }
 
 
 window.addEventListener("load", function() {
-  const form = document.getElementById("pizza-options")
-  form.addEventListener("submit", )
-})
+  const form = document.getElementById("pizza-options");
+  form.addEventListener("submit", pizzaForm);
+});
